@@ -1,0 +1,10 @@
+{
+  "parts": [
+    {
+      "name": "main",
+      "hooks": {
+        "getFullHTMLForExport" : "ep_talk_to_watson/index"
+      }
+    }
+  ]
+}
