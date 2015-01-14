@@ -2,14 +2,23 @@
   "name": "ep_talk_to_watson",
   "version": "0.0.1",
   "description": "Tallks to Watson",
-  "author": {
-    "name": "Eduardo Patrocinio",
-    "email": "eduardop@us.ibm.com",
-    "url": "eduardoware.com"
-  },
+  "author": "Eduardo Patrocinio <eduardop@us.ibm.com> (eduardoware.com)",
   "contributors": [],
   "dependencies": {},
   "engines": {
     "node": ">= 0.6.3"
-  }
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patrocinio/ep_talk_to_watson.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrocinio/ep_talk_to_watson/issues"
+  },
+  "homepage": "https://github.com/patrocinio/ep_talk_to_watson"
 }
