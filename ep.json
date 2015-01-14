@@ -1,9 +1,15 @@
 {
   "parts": [
     {
-      "name": "main",
+      "name": "ep_talk_to_watson",
       "hooks": {
-        "getFullHTMLForExport" : "ep_talk_to_watson/index"
+        "eejsBlock_scripts": "ep_talk_to_watson/index:eejsBlock_scripts",
+        "handleMessage": "ep_talk_to_watson/index:handleMessage",
+        "loadSettings": "ep_talk_to_watson/index:loadSettings",
+        "clientVars": "ep_talk_to_watson/index:clientVars"
+      },
+      "client_hooks": {
+        "aceEditEvent": "ep_talk_to_watson/static/js/index:aceEditEvent"
       }
     }
   ]

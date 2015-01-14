@@ -1,24 +1,48 @@
-/* 
- * Talk to Watson
- * 
- * 
- * */
+/*jslint browser: true*/
+/*global exports*/
+var settings;
+var secretsettings = {};
 
-exports.getFullHTMLForExport = function(hook, context) {
-    /*var document = jsdom.jsdom('<p>' + context.html + '</p>');
-    return [processNodes(document, {}, document).innerHTML];*/
-   
-   var html = context.html;
-   return ['<p>' + html.replace(/<br><br>/g, '</p><p>') + '</p>'];
+exports.loadSettings = function (hook, context) {
+  "use strict";
+  var read = require('read');
+  settings = {};
+  settings.updateInterval = 30000;
+  settings.triggerSequence = '@aw';
+
+  if(context.settings.ep_talk_to_watson) {
+    if(context.settings.ep_talk_to_watson.updateInterval) {
+      settings.updateInterval = context.settings.ep_talk_to_watson.updateInterval;
+    }
+    if(context.settings.ep_talk_to_watson.triggerSequence) {
+      settings.triggerSequence = context.settings.ep_talk_to_watson.triggerSequence;
+    }
+  }
+
 };
 
-var testString = 'eric<br />eric<br /><br />eric';
-var testString = 'eric eric<br />eric<br /><br />eric<br /><br />laatste paragraaf';
+exports.eejsBlock_scripts = function (hook, context) {
+  "use strict";
+  var syncJS = '<script type="text/javascript">\n';
+  syncJS += 'var servDate = ' + new Date().getTime() + '\n';
+  syncJS += 'var clientDate = new Date().getTime();\n';
+  syncJS += 'ep_talk_to_watson = {}\n';
+  syncJS += 'ep_talk_to_watson.timeDiff = servDate - clientDate;\n';
+  syncJS += 'ep_talk_to_watson.settings = ' + JSON.stringify(settings) + ";\n";
+  syncJS += '</script>\n';
+  
+  context.content = context.content + syncJS;
+};
 
-sys.puts(exports.getFullHTMLForExport('foo', {
-    html : testString,
-}), testString);
+exports.handleMessage = function(hook, context, callback) {
+  "use strict";
+  var msg = context.message;
+  var client = context.client;
 
-var cherieSaitFaireLesChoses = function(html) {
-   return '<br>' + html.replace(/<br><br>/g, '</br>Hello Watson!<br>') + '</br>';
+  callback();
+};
+
+exports.clientVars = function(hook, context, callback) {
+  "use strict";
+  callback();
 };
