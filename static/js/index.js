@@ -3,27 +3,29 @@
 
 exports.aceEditEvent = function (hook, context) {
   "use strict";
+  var prompt = "@watson Ask me:";
+   
   if (!context.callstack.docTextChanged) {
     return;
   }
   
-  console.log("--Eduardo--")
   // Original by simonwaldherr, http://shownotes.github.com/EtherpadBookmarklets/
   var ace = context.editorInfo.editor,
     padlines = ace.exportText().split('\n'),
     triggersq = ep_talk_to_watson.settings.triggerSequence,
     i = 0;
 
-  for (i = 0; i < padlines.length; i += 1) {
+  for (i = 0; i < padlines.length; i += 1) { 
     if (padlines[i].indexOf(triggersq + ' ') === 0) {
-      var Localtime = new Date().toLocaleTimeString();
-      var Timelength = Localtime.length;
-      if (ep_talk_to_watson.settings.bold = true) {
-        var now = "<strong>" + Localtime.substr(0, Timelength-3) + " Uhr</strong>";
-      } else {
-        var now = Localtime.substr(0, Timelength-3) + " Uhr";
-      }
+      var now = prompt;
       ace.replaceRange([i, 0], [i, triggersq.length], now);
+    }
+    console.log("line: " + padlines[i] + " index: " + padlines[i].indexOf('?'));
+    if (padlines[i].indexOf(prompt + ' ') == 0 && padlines[i].indexOf('?') > 0) {
+       var question = padlines[i].substr(prompt.length, padlines[i].length-1);
+       var response = "You asked " + question;
+       console.log ("response: " + response);
+       ace.replaceRange([i, prompt.length], [i, padlines[i].length], response);
     }
   }
 };

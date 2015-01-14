@@ -1,6 +1,6 @@
 {
   "name": "ep_talk_to_watson",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "convert \"### \" (or any other string) to \"HH:MM Uhr\"",
   "author": {
     "name": "Thomas Sänger",
