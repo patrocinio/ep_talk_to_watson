@@ -20,13 +20,6 @@ exports.aceEditEvent = function (hook, context) {
       var now = prompt;
       ace.replaceRange([i, 0], [i, triggersq.length], now);
     }
-    console.log("line: " + padlines[i] + " index: " + padlines[i].indexOf('?'));
-    if (padlines[i].indexOf(prompt + ' ') == 0 && padlines[i].indexOf('?') > 0) {
-       var question = padlines[i].substr(prompt.length, padlines[i].length-1);
-       var response = "You asked " + question;
-       console.log ("response: " + response);
-       ace.replaceRange([i, prompt.length], [i, padlines[i].length], response);
-    }
   }
 };
 

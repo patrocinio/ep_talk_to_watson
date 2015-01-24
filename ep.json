@@ -4,7 +4,7 @@
       "name": "ep_talk_to_watson",
       "hooks": {
         "eejsBlock_scripts": "ep_talk_to_watson/index:eejsBlock_scripts",
-        "handleMessage": "ep_talk_to_watson/index:handleMessage",
+        "padUpdate": "ep_talk_to_watson/index:padUpdate",
         "loadSettings": "ep_talk_to_watson/index:loadSettings",
         "clientVars": "ep_talk_to_watson/index:clientVars"
       },

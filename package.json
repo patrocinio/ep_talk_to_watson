@@ -1,27 +1,21 @@
 {
   "name": "ep_talk_to_watson",
-  "version": "0.0.6",
-  "description": "convert \"### \" (or any other string) to \"HH:MM Uhr\"",
+  "version": "0.0.18",
+  "description": "Sends a question to the IBM Watson Question and Answer serivce on Bluemix",
   "author": {
-    "name": "Thomas Sänger",
-    "email": "HorayNarea@gmail.com"
+    "name": "patrocinio",
+    "email": "epatro@gmail.com"
   },
   "contributors": [
     {
-      "name": "luto",
-      "email": "m@luto.at"
-    },
-    {
-      "name": "Simon Waldherr",
-      "email": "contact@simonwaldherr.eu"
-    },
-    {
-      "name": "Thomas Sänger",
-      "email": "HorayNarea@gmail.com"
+      "name": "rlive",
+      "email": "rlive@us.ibm.com"
     }
   ],
   "dependencies": {
-    "read": ">=1.0.5"
+    "read": ">=1.0.5",
+    "express": "3.4.7",
+    "jade": "1.1.4"
   },
   "license": "MIT",
   "engines": {
@@ -29,31 +23,37 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HorayNarea/ep_talk_to_watson.git"
+    "url": "TBD"
   },
-  "readme": "# ep_talk_to_watson\n## Function\nInserts the current localtime when the user types a the string defined in `triggerSequence` at the beginning of a line.\nThere is a very simple time-offset-correction implemented, which is triggered every `updateInterval` milliseconds.  \n\n## Settings\n```JSON\n\"ep_talk_to_watson\" : {\n                         \"updateInterval\": \"30000\",\n                         \"triggerSequence\": \"###\",\n                         }\n```\nSub-Settings:\n\n* `updateInterval`, defaults to `30000`, `-1` means no auto-updating, the interval in which the time-offset gets updated\n* `triggerSequence`, defaults to `###`, the characters the user has to write to trigger a timestamp-insertation\n\n",
-  "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/HorayNarea/ep_talk_to_watson/issues"
+    "url": "TBD"
   },
-  "_id": "ep_talk_to_watson@0.0.3",
+  "_id": "ep_talk_to_watson@0.0.17",
   "dist": {
-    "shasum": "99bcc1cd9ca97175a06d176bf998848d35db5c26",
-    "tarball": "http://registry.npmjs.org/ep_talk_to_watson/-/ep_talk_to_watson-0.0.3.tgz"
+    "shasum": "aeb59233e233edb74d6183f374b56454dcc6f2cf",
+    "tarball": "TBD"
   },
   "_from": "ep_talk_to_watson@*",
-  "_npmVersion": "1.3.11",
+  "_npmVersion": "1.4.28",
   "_npmUser": {
-    "name": "horaynarea",
-    "email": "HorayNarea@gmail.com"
+    "name": "rlive",
+    "email": "rlive@us.ibm.com"
   },
   "maintainers": [
     {
-      "name": "horaynarea",
-      "email": "HorayNarea@gmail.com"
+      "name": "patrocinio",
+      "email": "epatro@gmail.com"
+    },
+    {
+      "name": "rlive",
+      "email": "rlive@us.ibm.com"
     }
   ],
   "directories": {},
-  "_shasum": "99bcc1cd9ca97175a06d176bf998848d35db5c26",
-  "_resolved": "https://registry.npmjs.org/ep_talk_to_watson/-/ep_talk_to_watson-0.0.3.tgz"
+  "_shasum": "aeb59233e233edb74d6183f374b56454dcc6f2cf",
+  "_resolved": "https://registry.npmjs.org/ep_talk_to_watson/-/ep_talk_to_watson-0.0.17.tgz",
+  "gitHead": "01df4b6879854ffe3d04467ebe64dd2ecf18d73f",
+  "homepage": "https://github.com/HorayNarea/ep_talk_to_watson",
+  "scripts": {},
+  "_nodeVersion": "0.10.28"
 }

@@ -2,6 +2,9 @@
 /*global exports*/
 var settings;
 var secretsettings = {};
+var prompt = "@watson Ask me:";
+
+var watsonAPI = require("./watsonapi.js");
 
 exports.loadSettings = function (hook, context) {
   "use strict";
@@ -34,12 +37,35 @@ exports.eejsBlock_scripts = function (hook, context) {
   context.content = context.content + syncJS;
 };
 
-exports.handleMessage = function(hook, context, callback) {
+exports.padUpdate = function(hook, _pad) {
   "use strict";
-  var msg = context.message;
-  var client = context.client;
+    var pad = _pad.pad;
+    var padId = pad.id;
+    
+    console.log ("id: " + padId);
+    
+    var text = pad.atext.text;
 
-  callback();
+	console.log ("text: " + JSON.stringify(text));
+
+     var position = text.indexOf(prompt + ' ');
+     var questionPosition = text.indexOf('?');
+	console.log ("position: " + position +  " questionP " + questionPosition);
+    if (position >= 0 &&  questionPosition > 0) {
+    	var start = position + prompt.length;
+       var question = text.substr(start, questionPosition - start + 1);
+       var response = "You asked " + question;
+       console.log ("response: " + response);
+       	
+       console.log( 'Calling Watson with question: ' + question );
+       
+       var before = text.substr(0, position);
+       var after = text.substr(questionPosition+1, text.length - (questionPosition+1));
+       console.log("before: " + before + " after: " + after);
+       
+       watsonAPI.askQuestion(question, pad, before, after);
+    
+  }
 };
 
 exports.clientVars = function(hook, context, callback) {

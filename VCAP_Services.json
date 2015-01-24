@@ -1,0 +1,26 @@
+{
+  "cleardb" : [ {
+    "name" : "ClearDB MySQL Database-40",
+    "label" : "cleardb",
+    "plan" : "spark",
+    "credentials" : {
+      "jdbcUrl" : "jdbc:mysql://bff44c9b961214:469e8899@us-cdbr-iron-east-01.cleardb.net:3306/ad_6fd41434ecc6b69",
+      "uri" : "mysql://bff44c9b961214:469e8899@us-cdbr-iron-east-01.cleardb.net:3306/ad_6fd41434ecc6b69?reconnect=true",
+      "name" : "ad_6fd41434ecc6b69",
+      "hostname" : "us-cdbr-iron-east-01.cleardb.net",
+      "port" : "3306",
+      "username" : "bff44c9b961214",
+      "password" : "469e8899"
+    }
+  } ],
+  "question_and_answer" : [ {
+    "name" : "Question and Answer-ry",
+    "label" : "question_and_answer",
+    "plan" : "question_and_answer_free_plan",
+    "credentials" : {
+      "url" : "https://gateway.watsonplatform.net/qagw/service",
+      "username" : "d9227b8c-b31d-45ce-a018-b0f9e2ac6a2c",
+      "password" : "cKPZJqKE6h2I"
+    }
+  } ]
+}
